@@ -1,4 +1,30 @@
-## 1. General info
+
+## 1. What difference
+The difference between this implementation of grep in python from others
+1) Searches for different types of input data without specifying the type
+- List[str]
+- TextIOWrapper: Opened files
+- str: Single-line and multi-line strings
+- str: Just file paths like `dir/filename.txt`
+2) Works primarily inside the python code and returns a List[str] type that is convenient for further processing
+3) Has an unlimited number of input parameters
+4) By default, it works with normal (extended) regular expressions
+Yes - you can simple write in python code:
+```python
+pattern = r"hello"
+str_variable = "hello world"
+list_variable = ["hello there", "general kenobi"]
+file_path = "test_file.txt" # File contain: "This is a test file.\nhello from file\nAnother line."
+result = grepli(pattern, str_variable, list_variable, file_path)
+print(result)
+```
+And you get sum result:
+```python
+['hello world', 'hello there', 'hello from file']
+```
+> See this test code with this example: https://github.com/linxuil/grepli/blob/main/tests/test_grepli.py#L45
+
+## 2. General info
 This project is grep function implementation for python.
 I use this "grepli" function for:
 - Analyse log files in tests where i need info from linux
@@ -9,8 +35,8 @@ I use this "grepli" function for:
 - Gateway from files in file system to list type in python
   if run with dot regex `grepli . 'filepath.txt'`
 
-## 2. Usage
-### 2.1. Without install module
+## 3. Usage
+### 3.1. Without install module
 Try use python script via cmd without install:
 ```bash
 $ cd <'prj_folder'>
@@ -23,7 +49,7 @@ third line'
 
 ['foo_yes', 'last text.', 'This is a test text.']
 ```
-### 2.2. PIP module istall
+### 3.2. PIP module istall
 You can install via `pip` in venv:
 ```bash
 # Pull repo
@@ -57,7 +83,7 @@ $ deactivate
 ```
 
 <!-- CONTRIBUTING -->
-## 3. Contributing
+## 4. Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -70,11 +96,11 @@ Don't forget to give the project a star! Thanks again!
 6. Push to the Branch (`git push origin feature/YouFeature`)
 7. Open a Pull Request on github
 
-## 4. License
+## 5. License
 
 Distributed under the MIT License. See `LICENSE.md` for more information.
 
-## 5. Contact
+## 6. Contact
 
 linxuil - linxuil.g@gmail.com
 
